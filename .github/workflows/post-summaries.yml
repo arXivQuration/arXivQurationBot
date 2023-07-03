@@ -1,0 +1,16 @@
+on:
+  schedule:
+    - cron: '0 9 * * *'
+
+jobs:
+  post-summaries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: hello-world
+        run: |
+          python -c 'import sys;import os;print(sys.version);print(os.listdir())'
