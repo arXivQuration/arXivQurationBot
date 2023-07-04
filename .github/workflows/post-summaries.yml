@@ -6,6 +6,10 @@ on:
 jobs:
   post-summaries:
     runs-on: ubuntu-latest
+    env:
+      DEEPL_AUTHKEY: ${{ secrets.DEEPL_AUTHKEY }}
+      GH_APPID: ${{ secrets.GH_APPID }}
+      GH_APPKEY: ${{ secrets.GH_APPKEY }}
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
