@@ -1,0 +1,4 @@
+arxiv==1.4.7
+deepl==1.15.0
+PyGithub==1.59.0
+python-dotenv==1.0.0
