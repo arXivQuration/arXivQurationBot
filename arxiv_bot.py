@@ -35,6 +35,8 @@ def compose_links_markdown(links: list[arxiv.Result.Link]) -> str:
     markdowns = [link_to_markdown(link) for link in links]
     if not markdowns:
         return "(no links)"
+    if links[0].title is not None:
+        return ','.join(markdowns)
     s = markdowns[0]
     if markdowns[1:]:
         s += f" ({','.join(markdowns[1:])})"
