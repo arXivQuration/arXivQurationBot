@@ -30,7 +30,7 @@ def compose_links_markdown(links: list[arxiv.Result.Link]) -> str:
     def link_to_markdown(link: arxiv.Result.Link) -> str:
         if link.title:
             return f"[{link.title}]({link.href})"
-        return link.href
+        return f"[{link.href}]({link.href})"
 
     markdowns = [link_to_markdown(link) for link in links]
     if not markdowns:
