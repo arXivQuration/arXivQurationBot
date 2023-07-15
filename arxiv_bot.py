@@ -62,8 +62,8 @@ if __name__ == "__main__":
     load_dotenv()
 
     today = datetime.date.today()
-    date_from = (today - datetime.timedelta(days=7)).strftime("%Y%m%d")
-    date_to = (today - datetime.timedelta(days=6)).strftime("%Y%m%d")
+    date_from = (today - datetime.timedelta(days=6)).strftime("%Y%m%d")
+    date_to = (today - datetime.timedelta(days=5)).strftime("%Y%m%d")
 
     DEEPL_AUTHKEY = os.environ["DEEPL_AUTHKEY"]
     translator = deepl.Translator(DEEPL_AUTHKEY)
