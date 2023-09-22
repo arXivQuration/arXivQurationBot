@@ -43,13 +43,14 @@ def compose_links_markdown(links: list[arxiv.Result.Link]) -> str:
     return s
 
 
-def compose_body(summary_ja: str, links: str, authors: str, published: datetime.datetime) -> str:
+def compose_body(summary_ja: str, links: str, ar5iv_url: str, authors: str, published: datetime.datetime) -> str:
     published_str = published.strftime("%Y/%m/%d")
     return f"""# Summary (DeepL訳)
 {summary_ja}
 
 ## Links
 {links}
+[ar5iv]({ar5iv})
 
 ## Authors
 {authors}
@@ -76,8 +77,9 @@ if __name__ == "__main__":
         title = result.title
         authors = compose_authors_markdown(result.authors)
         links = compose_links_markdown(result.links)
+        ar5iv_url = f"https://ar5iv.labs.arxiv.org/html/{result.entry_id}"
         summary_en = result.summary.replace('\n', ' ')
         translate_result = translator.translate_text(result.summary.replace('\n', ' '), target_lang="JA")
         summary_ja = typing.cast(deepl.translator.TextResult, translate_result).text
-        body = compose_body(summary_ja=summary_ja, links=links, authors=authors, published=result.published)
+        body = compose_body(summary_ja=summary_ja, links=links, ar5iv_url=ar5iv_url, authors=authors, published=result.published)
         repo.create_issue(title=title, body=body)
