@@ -50,7 +50,7 @@ def compose_body(summary_ja: str, links: str, ar5iv_url: str, authors: str, publ
 
 ## Links
 {links}
-[ar5iv]({ar5iv})
+[ar5iv]({ar5iv_url})
 
 ## Authors
 {authors}
