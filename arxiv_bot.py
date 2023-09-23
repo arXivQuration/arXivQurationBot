@@ -77,7 +77,7 @@ if __name__ == "__main__":
         title = result.title
         authors = compose_authors_markdown(result.authors)
         links = compose_links_markdown(result.links)
-        ar5iv_url = f"https://ar5iv.labs.arxiv.org/html/{result.entry_id}"
+        ar5iv_url = result.entry_id.replace("arxiv", "ar5iv")
         summary_en = result.summary.replace('\n', ' ')
         translate_result = translator.translate_text(result.summary.replace('\n', ' '), target_lang="JA")
         summary_ja = typing.cast(deepl.translator.TextResult, translate_result).text
