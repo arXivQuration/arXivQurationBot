@@ -43,7 +43,7 @@ def compose_links_markdown(entry: arxiv.Result) -> str:
     if (pdf_url := entry.pdf_url):
         markdowns.append(f"[pdf]({pdf_url})")
 
-    markdowns = [abs_url, ar5iv_url] + [md for link in entry.links if (md := link_to_markdown(link))]
+    markdowns = [abs_url, f"[ar5iv](ar5iv_url)"] + [md for link in entry.links if (md := link_to_markdown(link))]
     s = markdowns[0]
     s += f' ({", ".join(markdowns[1:])})'
 
