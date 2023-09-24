@@ -81,7 +81,7 @@ if __name__ == "__main__":
     gh = get_github_instance()
     repo = gh.get_repo("arXivQuration/arXivQurationBot")
 
-    query = f'cat:quant-ph AND submittedDate:[{date_from} TO {date_to}] AND ("quantum comput" OR qubit)'
+    query = f'cat:quant-ph AND submittedDate:[{date_from} TO {date_to}] AND ("quantum comput" OR qubit OR "tensor network")'
 
     for result in arxiv.Search(query=query, max_results=50).results():
         title = result.title
